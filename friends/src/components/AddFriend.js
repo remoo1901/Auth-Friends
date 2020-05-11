@@ -1,61 +1,51 @@
-import React from "react";
-import { axiosWithAuth } from "../util/axiosWithAuth";
+import React, { useState } from "react";
+import axiosWithAuth from "../util/axiosWithAuth";
 
-class AddFriend extends React.Component {
-  state = {
-    friend: {
-      name: "",
-      age: "",
-      email: "",
-    },
-  };
+function AddFriend() {
+  const [friend, setFriend] = useState({ name: "", age: "", email: "" });
 
-  handelChange = (e) => {
-    this.setState({
-      friend: {
-        ...this.state.friend,
-        [e.target.name]: e.target.value,
-      },
+  const handelChange = (e) => {
+    setFriend({
+      ...friend,
+      [e.target.name]: e.target.value,
     });
   };
 
-  handelSubmit = (e) => {
+  const addNewFriend = (e) => {
     e.preventDefault();
 
     axiosWithAuth()
-      .post("/friends", this.state.friend)
+      .post("/friends", friend)
       .then((res) => console.log(res))
       .catch((err) => console.log("ERR", err));
   };
 
-  render() {
-    return (
-      <form onSubmit={this.handelSubmit}>
-        <input
-          type="text"
-          name="name"
-          value={this.state.friend.name}
-          placeholder="Name"
-          onChange={this.handelChange}
-        />
-        <input
-          type="text"
-          name="age"
-          value={this.state.friend.age}
-          placeholder="Age"
-          onChange={this.handelChange}
-        />
-        <input
-          type="text"
-          name="email"
-          value={this.state.friend.email}
-          placeholder="Email"
-          onChange={this.handelChange}
-        />
-        <button>Add Friend</button>
-      </form>
-    );
-  }
+  return (
+    <form onSubmit={addNewFriend}>
+      <input
+        type="text"
+        name="name"
+        value={friend.name}
+        placeholder="Name"
+        onChange={handelChange}
+      />
+      <input
+        type="text"
+        name="age"
+        value={friend.age}
+        placeholder="Age"
+        onChange={handelChange}
+      />
+      <input
+        type="text"
+        name="email"
+        value={friend.email}
+        placeholder="Email"
+        onChange={handelChange}
+      />
+      <button>Add Friend</button>
+    </form>
+  );
 }
 
 export default AddFriend;

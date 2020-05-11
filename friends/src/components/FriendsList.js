@@ -1,39 +1,48 @@
-import React from "react";
-import { axiosWithAuth } from "../util/axiosWithAuth";
+import React, { useState, useEffect } from "react";
+import axiosWithAuth from "../util/axiosWithAuth";
 
-class FriendsList extends React.Component {
-  state = {
-    friends: [],
-  };
+function FriendsList() {
+  const [friends, setFriends] = useState([]);
+   
 
-  componentDidMount() {
-    this.getData();
-  }
-
-  getData = () => {
+  useEffect(() => {
     axiosWithAuth()
       .get("/friends")
       .then((res) => {
         console.log(res);
-        this.setState({ friends: res.data });
+        setFriends(res.data);
       })
       .catch((err) => console.log("ERRR", err));
+  }, []);
+
+   
+  const deleteHandler = (e, id) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .delete(`/friends/${id}`)
+      .then((res) => setFriends(res.data))
+      .catch((err) => console.log("ERROR", err));
   };
 
-  render() {
-    return (
-      <div>
-        {this.state.friends.map((x) => (
-          <div >
+  return (
+    <div>
+      <h1>Friends List</h1>
+      {friends.map((x) => {
+        return (
+          <div key={x.id}>
             <h3>Name: {x.name}</h3>
-            <h5>Id: {x.id}</h5>
+
             <h3>Age: {x.age}</h3>
             <h3>Email: {x.email}</h3>
+
+            <button onClick={(e) => deleteHandler(e, x.id)}>
+              Remove Friend
+            </button>
           </div>
-        ))}
-      </div>
-    );
-  }
+        );
+      })}
+    </div>
+  );
 }
 
 export default FriendsList;

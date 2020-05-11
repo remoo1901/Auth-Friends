@@ -3,44 +3,35 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Login from "./components/Login";
 import AddFriend from "./components/AddFriend.js";
 import FriendsList from "./components/FriendsList";
-import DeleteFriend from "./components/DeleteFriend";
 import PrivateRoute from "./components/PrivateRoute";
 import "./App.css";
 
-class App extends React.Component {
-  /*constructor() {
-      super();
-      this.state = { credentials: {} }
-  }*/
-
-  render() {
-    return (
+function App() {
+  const logout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    window.location.reload(false);
+  };
+  return (
+    <section className="App">
       <Router>
-        <div className="App">
-          <Link to="/">Home</Link>
-          <br></br>
+        <div className="nav">
           <Link to="/login">Login</Link>
-          <br></br>
-          <Link to="/friends-list">Friends</Link>
-          <br></br>
-          <Link to="/add-friend">Add Friend</Link>
-          <br></br>
-          <Link to="/remove-friend">Delete Friend</Link>
 
-          <Switch>
-          <Route path="/login" component={Login} />
-            <PrivateRoute exact path="/friends-list" component={FriendsList} />
-            <PrivateRoute exact path="/add-friend" component={AddFriend} />
-            <PrivateRoute
-              exact
-              path="/remove-friend"
-              component={DeleteFriend}
-            />
-            
-          </Switch>
+          <Link to="/friendslist">Friends List</Link>
+
+          <Link to="/addfriend">Add Friend</Link>
+          <button onClick={logout}>Log Out</button>
         </div>
+
+        <Switch>
+          <PrivateRoute exact path="/friendslist" component={FriendsList} />
+          <PrivateRoute exact path="/addfriend" component={AddFriend} />
+          <Route path="/login" component={Login} />
+          <Route component={Login} />
+        </Switch>
       </Router>
-    );
-  }
+    </section>
+  );
 }
 export default App;

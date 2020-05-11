@@ -1,61 +1,57 @@
-import React from "react";
-import { axiosWithAuth } from "../util/axiosWithAuth";
+import React, { useState } from "react";
+import axiosWithAuth from "../util/axiosWithAuth";
 
-class Login extends React.Component {
-  state = {
-    //isLoading: false,
+function Login(props) {
+  const [cred, setCred] = useState({
     credentials: {
       username: "",
-      password: ""
+      password: "",
     },
-  };
+  });
 
-  handelChange = (e) => {
-    this.setState({    
+ const handelChange = (e) => {
+    setCred({
       credentials: {
-        ...this.state.credentials,
-        [e.target.name]: e.target.value
+        ...cred.credentials,
+        [e.target.name]: e.target.value,
       },
     });
   };
 
-  login = (e) => {
+  const login = (e) => {
     e.preventDefault();
-    //this.setState({...this.state, isLoading: true})
-
     axiosWithAuth()
-      .post("/login", this.state.credentials)
+      .post("/login", cred.credentials)
       .then((res) => {
-        window.localStorage.setItem("token", res.data.payload);
-        //this.setState({...this.state, isLoading: false})
-       // this.props.history.push("/protected");
+        localStorage.setItem("token", res.data.payload);
+        props.history.push("/friendslist");
       })
-      .catch((err) => console.log("ERR", err));
+      .catch((err) => {
+        console.log("ERR", err);
+      });
   };
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.login}>
-          <input
-            type="text"
-            name="username"
-            //placeholder="UserName"
-            value={this.state.credentials.username}
-            onChange={this.handelChange}
-          />
-          <input
-            type="password"
-            name="password"
-            //placeholder="Password"
-            value={this.state.credentials.password}
-            onChange={this.handelChange}
-          />
-          <button>Log In</button>
-        </form>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <form onSubmit={(e) => login(e)}>
+        <input
+          type="text"
+          name="username"
+          placeholder="UserName"
+          value={cred.credentials.username}
+          onChange={handelChange}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={cred.credentials.password}
+          onChange={(e) => handelChange(e)}
+        />
+        <button>Log In</button>
+      </form>
+    </div>
+  );
 }
 
 export default Login;
