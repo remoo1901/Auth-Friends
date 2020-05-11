@@ -21,7 +21,10 @@ function AddFriend() {
   };
 
   return (
+    <div>
+    <h1>Add Friend</h1>
     <form onSubmit={addNewFriend}>
+    
       <input
         type="text"
         name="name"
@@ -45,7 +48,10 @@ function AddFriend() {
       />
       <button>Add Friend</button>
     </form>
+    </div>
   );
 }
 
 export default AddFriend;
+
+
