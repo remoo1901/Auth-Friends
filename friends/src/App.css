@@ -1,8 +1,6 @@
 .App {
   text-align: center;
-} 
-
-
+}
 
 .App-logo {
   height: 40vmin;
@@ -38,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+ 
+
+.logins {
+  margin: 29px; }
+
+.addfriend {
+  margin: 29px;
+}
+
+.logout {
+  margin: 29px;
+}
+
+.friendslist {
+  margin: 29px;
+}
+ 

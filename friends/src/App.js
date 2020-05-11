@@ -13,15 +13,13 @@ function App() {
     window.location.reload(false);
   };
   return (
-    <section className="App">
+    <section className="App"  >
       <Router>
-        <div className="nav">
-          <Link to="/login">Login</Link>
-
-          <Link to="/friendslist">Friends List</Link>
-
-          <Link to="/addfriend">Add Friend</Link>
-          <button onClick={logout}>Log Out</button>
+        <div>
+          <Link className="logins" to="/login">Login</Link>
+          <Link className="friendslist" to="/friendslist">Friends List</Link>
+          <Link className="addfriend" to="/addfriend">Add Friend</Link>
+          <button className="logout" onClick={logout}>Log Out</button>
         </div>
 
         <Switch>

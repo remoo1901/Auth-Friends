@@ -33,6 +33,7 @@ function Login(props) {
   };
 
   return (
+   
     <div class="login">
       <div class="login-triangle"></div>
 
@@ -62,6 +63,7 @@ function Login(props) {
         </p>
       </form>
     </div>
+    
   );
 }
 
