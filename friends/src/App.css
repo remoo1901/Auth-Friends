@@ -37,19 +37,49 @@
   }
 }
  
-
-.logins {
-  margin: 29px; }
-
-.addfriend {
-  margin: 29px;
-}
-
-.logout {
-  margin: 29px;
-}
-
-.friendslist {
-  margin: 29px;
-}
  
+ 
+
+.btn {
+  border-radius: 2px;
+  background-color: rgb(25, 25, 189); /* Green */
+  border: none;
+  color: rgb(250, 251, 252);
+  padding: 12px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 15px ;
+  transition-duration: 0.4s;
+  cursor: pointer;
+   
+  
+}
+
+.btn1:hover {
+  background-color: white; 
+  color: black; 
+  border: 1px solid #008CBA;
+}
+
+.btn-0 {
+  background-color: rgb(25, 25, 189); /* Green */
+  border: none;
+  color: rgb(250, 251, 252);
+  padding: 13.3px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14.5px;
+  margin-top: 15px ;
+  transition-duration: 0.4s;
+  cursor: pointer;
+   
+}
+
+.btn-1:hover {
+  background-color: white; 
+  color: black; 
+  border: 1px solid #008CBA;
+}

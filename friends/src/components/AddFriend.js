@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axiosWithAuth from "../util/axiosWithAuth";
+import "./FriendsList.css"
 
 function AddFriend() {
   const [friend, setFriend] = useState({ name: "", age: "", email: "" });

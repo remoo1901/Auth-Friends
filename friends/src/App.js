@@ -9,20 +9,20 @@ import "./App.css";
 function App() {
   const logout = (e) => {
     e.preventDefault();
-    localStorage.removeItem("token");
+    localStorage.clear("token");
     window.location.reload(false);
   };
   return (
     <section className="App"  >
       <Router>
         <div>
-          <Link className="logins" to="/login">Login</Link>
-          <Link className="friendslist" to="/friendslist">Friends List</Link>
-          <Link className="addfriend" to="/addfriend">Add Friend</Link>
-          <button className="logout" onClick={logout}>Log Out</button>
+         <Link className="btn btn1" to="/login">Login </Link> 
+          <Link className="btn btn1" to="/friendslist">Friends List</Link>
+          <Link className="btn btn1" to="/addfriend">Add Friend</Link>
+          <button className="btn-0 btn-1" onClick={logout}>Log Out</button>
         </div>
 
-        <Switch>
+        <Switch> 
           <PrivateRoute exact path="/friendslist" component={FriendsList} />
           <PrivateRoute exact path="/addfriend" component={AddFriend} />
           <Route path="/login" component={Login} />
