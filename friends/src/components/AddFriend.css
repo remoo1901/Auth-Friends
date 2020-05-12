@@ -1,0 +1,33 @@
+.add {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+  border-radius: 15px;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+  border-radius: 15px;
+}
+
+.addBtn {
+    font-size: .825em;
+    text-decoration: none;
+    font-weight: 700;
+    padding: .35em 1em;
+    background-color: #eaeef1;
+     margin-left: 10px;
+     
+    text-shadow: 0 1px 1px rgba(255,255,255,.7);
+     border-radius: 15px
+}
+
+ 
