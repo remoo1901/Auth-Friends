@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../util/axiosWithAuth";
+import "./FriendsList.css"
 
 function FriendsList() {
   const [friends, setFriends] = useState([]);
@@ -24,16 +25,17 @@ function FriendsList() {
 
   return (
     <div>
-      {" "}
-      <h1>Friends List</h1>
+
+      <h1>Friend's List</h1>
       {friends.map((x) => {
+
         return (
           <div className="container">
             <div className="wrapper" key={x.id}>
               <h3>Name: {x.name}</h3>
               <h3>Age: {x.age}</h3>
               <h3>Email: {x.email}</h3>
-              <button onClick={(e) => deleteHandler(e, x.id)}>
+              <button  className="remove" onClick={(e) => deleteHandler(e, x.id)}>
                 Remove Friend
               </button>
             </div>

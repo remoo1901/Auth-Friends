@@ -1,18 +1,35 @@
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: space-between;
-    padding: 5px;
-    max-width: 100%;
-     
-    
+  display: inline-block;
+  border: 1px solid;
+  position: relative;
+  padding: 10px;
+  font-weight: 900;
 }
 
 .wrapper {
- 
-    width: 400px;
-    background-color: white;
-    color: black;
-    border: 2px solid #4CAF50;  
-    
+    font-style: italic;
+  width: 400px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid #fcfdff;
+  margin-bottom: 5px;
+  padding: 5px;
+  box-shadow: 2px 2px 2px white;
+  font-weight: 900;
 }
+
+h1 {
+  color: white;
+  font-style: italic;
+  font-size: 50px;
+  font-weight: 900;
+  text-shadow: 1px 1px rgb(82, 82, 241);
+
+}
+
+.remove {
+    background-color: transparent;
+    color: white;
+        border-radius: 3px;
+  }
+  

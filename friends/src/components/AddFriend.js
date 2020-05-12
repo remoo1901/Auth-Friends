@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axiosWithAuth from "../util/axiosWithAuth";
-import "./FriendsList.css"
+import "./AddFriend.css"
 
 function AddFriend() {
   const [friend, setFriend] = useState({ name: "", age: "", email: "" });
@@ -24,7 +24,7 @@ function AddFriend() {
   return (
     <div>
     <h1>Add Friend</h1>
-    <form onSubmit={addNewFriend}>
+    <form  onSubmit={addNewFriend}>
     
       <input
         type="text"
@@ -47,7 +47,7 @@ function AddFriend() {
         placeholder="Email"
         onChange={handelChange}
       />
-      <button>Add Friend</button>
+      <button className="add" >Add Friend</button>
     </form>
     </div>
   );

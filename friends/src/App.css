@@ -42,17 +42,18 @@
 
 .btn {
   border-radius: 2px;
-  background-color: rgb(25, 25, 189); /* Green */
+  background-color:  #28d; /* Green */
   border: none;
   color: rgb(250, 251, 252);
   padding: 12px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
-  margin-top: 15px ;
-  transition-duration: 0.4s;
+  font-size: 16px;
+  margin-top: 16px ;
+  transition-duration: 0.2s;
   cursor: pointer;
+  font-weight: 500;
    
   
 }
@@ -64,17 +65,18 @@
 }
 
 .btn-0 {
-  background-color: rgb(25, 25, 189); /* Green */
+  background-color: #28d; /* Green */
   border: none;
   color: rgb(250, 251, 252);
   padding: 13.3px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14.5px;
-  margin-top: 15px ;
+  font-size: 15px;
+  margin-top: 14px ;
   transition-duration: 0.4s;
   cursor: pointer;
+  font-weight: 500;
    
 }
 
